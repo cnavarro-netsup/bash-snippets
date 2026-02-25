@@ -2,6 +2,8 @@
 
 # Function to validate a public IPv4 address
 # Usage: is_public_ipv4 <IP_ADDRESS>
+# Date: 2026-02-25
+# Autor: CPN + gemini (Antigravity)
 # Returns 0 if valid and public, 1 otherwise
 is_public_ipv4() {
     local ip="$1"
