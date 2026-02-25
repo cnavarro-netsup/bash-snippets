@@ -80,30 +80,3 @@ is_public_ipv4() {
     # If all checks pass, it's a valid public IPv4
     return 0
 }
-
-# Example Usage and Testing
-# You can remove the testing segment when using the snippet
-
-test_ips=(
-    "8.8.8.8"           # Public (Google DNS)
-    "1.1.1.1"           # Public (Cloudflare DNS)
-    "192.168.1.1"       # Private
-    "10.0.0.5"          # Private
-    "172.20.0.1"        # Private
-    "127.0.0.1"         # Loopback
-    "169.254.1.1"       # Link-local
-    "256.1.1.1"         # Invalid (Octet > 255)
-    "192.168.1"         # Invalid format
-    "abc.def.ghi.jkl"   # Invalid format
-    "01.1.1.1"          # Invalid (Leading zero)
-    "224.0.0.1"         # Multicast
-    "240.0.0.1"         # Reserved
-)
-
-for ip in "${test_ips[@]}"; do
-    if is_public_ipv4 "$ip"; then
-        echo -e "\e[32m[VALID PUBLIC]\e[0m $ip"
-    else
-        echo -e "\e[31m[INVALID/PRIVATE]\e[0m $ip"
-    fi
-done
